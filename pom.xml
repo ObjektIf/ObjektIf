@@ -25,6 +25,7 @@
         <url>https://github.com/YoshiMan/ObjektIf/issues</url>
     </issueManagement>
     <properties>
+        <detekt-maven-plugin.version>1.15.0</detekt-maven-plugin.version>
         <directory-maven-plugin.version>0.3.1</directory-maven-plugin.version>
         <fb-contrib.version>7.0.4</fb-contrib.version>
         <findsecbugs-plugin.version>1.7.1</findsecbugs-plugin.version>
@@ -380,6 +381,21 @@
                         </execution>
                     </executions>
                 </plugin>
+                <plugin>
+                    <groupId>com.github.ozsie</groupId>
+                    <artifactId>detekt-maven-plugin</artifactId>
+                    <version>${detekt-maven-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                            <configuration>
+                                <config>detekt.yml</config>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -422,6 +438,10 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>license-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.github.ozsie</groupId>
+                <artifactId>detekt-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
