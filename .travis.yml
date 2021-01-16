@@ -8,7 +8,7 @@ jdk:
 
 before_install:
   - chmod +x mvnw
-#  - chmod +x .mvn/wrapper/gradle-wrapper.jar
+  - ./mvnw versions:set -DnewVersion=${TRAVIS_COMMIT}
 
 script:
   - ./mvnw -B clean install
