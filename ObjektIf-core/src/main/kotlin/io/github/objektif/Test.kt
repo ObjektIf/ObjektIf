@@ -30,7 +30,7 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  * #L%
  */
-package io.github.yoshiman
+package io.github.objektif
 
 /** Class to test detekt. */
 class Test {
