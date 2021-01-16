@@ -1,0 +1,18 @@
+branches:
+  only:
+    - main
+
+language: java
+jdk:
+  - oraclejdk11
+
+before_install:
+  - chmod +x mvnw
+  - chmod +x .mvn/wrapper/gradle-wrapper.jar
+
+script:
+  - ./mvnw -B clean install
+
+git:
+  depth: false
+  quiet: true
