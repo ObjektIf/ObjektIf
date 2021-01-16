@@ -8,7 +8,7 @@ jdk:
 
 before_install:
   - chmod +x mvnw
-  - chmod +x .mvn/wrapper/gradle-wrapper.jar
+#  - chmod +x .mvn/wrapper/gradle-wrapper.jar
 
 script:
   - ./mvnw -B clean install
