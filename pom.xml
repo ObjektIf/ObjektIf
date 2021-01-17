@@ -61,7 +61,6 @@
         <root-dir>${maven.multiModuleProjectDirectory}</root-dir>
         <sortpom-maven-plugin.version>2.12.0</sortpom-maven-plugin.version>
         <spotless-maven-plugin.version>2.6.1</spotless-maven-plugin.version>
-        <version.number>${git.commit.time}.${git.commit.id.abbrev}</version.number>
         <versions-maven-plugin.version>2.8.1</versions-maven-plugin.version>
     </properties>
     <dependencyManagement>
@@ -277,28 +276,6 @@
                     <version>${maven-jxr-plugin.version}</version>
                 </plugin>
                 <plugin>
-                    <groupId>pl.project13.maven</groupId>
-                    <artifactId>git-commit-id-plugin</artifactId>
-                    <version>${git-commit-id-plugin.version}</version>
-                    <executions>
-                        <execution>
-                            <phase>validate</phase>
-                            <goals>
-                                <goal>revision</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <dateFormat>yyyyMMdd-HHmmss</dateFormat>
-                        <!--  human-readable part of the version number -->
-                        <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
-                        <generateGitPropertiesFile>false</generateGitPropertiesFile>
-                        <!-- somehow necessary. otherwise the variables are not available in the pom -->
-                        <injectAllReactorProjects>true</injectAllReactorProjects>
-                        <failOnUnableToExtractRepoInfo>true</failOnUnableToExtractRepoInfo>
-                    </configuration>
-                </plugin>
-                <plugin>
                     <groupId>org.jetbrains.kotlin</groupId>
                     <artifactId>kotlin-maven-plugin</artifactId>
                     <version>${kotlin.version}</version>
@@ -422,10 +399,6 @@
             </plugin>
             <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>pl.project13.maven</groupId>
-                <artifactId>git-commit-id-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
