@@ -2,7 +2,7 @@
  * #%L
  * ObjektIf
  * %%
- * Copyright (C) 2020 - 2020 Janosch Schwalm23, Alexander Wirz
+ * Copyright (C) 2020 - 2021 Janosch Schwalm, Alexander Wirz
  * %%
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:

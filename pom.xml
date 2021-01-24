@@ -38,6 +38,7 @@
         <kotlin.compiler.languageVersion>1.4</kotlin.compiler.languageVersion>
         <kotlin.version>1.4.30-M1</kotlin.version>
         <license-maven-plugin.version>2.0.0</license-maven-plugin.version>
+        <license.canUpdateCopyright>true</license.canUpdateCopyright>
         <license.copyrightOwners>Janosch Schwalm, Alexander Wirz</license.copyrightOwners>
         <license.failOnMissingHeader>true</license.failOnMissingHeader>
         <license.failOnNotUptodateHeader>true</license.failOnNotUptodateHeader>
@@ -53,7 +54,6 @@
         <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
         <maven-install-plugin.version>3.0.0-M1</maven-install-plugin.version>
         <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
-        <maven-jxr-plugin.version>3.0.0</maven-jxr-plugin.version>
         <maven-jxr-plugin.version>3.0.0</maven-jxr-plugin.version>
         <maven-pmd-plugin.version>3.14.0</maven-pmd-plugin.version>
         <maven-project-info-reports-plugin.version>3.1.1</maven-project-info-reports-plugin.version>
