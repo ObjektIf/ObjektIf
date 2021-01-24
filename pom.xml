@@ -11,6 +11,13 @@
         <name>ObjektIf</name>
         <url>https://github.com/ObjektIf/ObjektIf</url>
     </organization>
+    <licenses>
+        <license>
+            <name>BSD-3-Clause</name>
+            <url>https://opensource.org/licenses/BSD-3-Clause</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
     <modules>
         <module>ObjektIf-core</module>
     </modules>
