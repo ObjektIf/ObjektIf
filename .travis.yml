@@ -8,6 +8,7 @@ jdk:
 
 before_install:
   - chmod +x mvnw
+  - mvn validate -P check
   - ./mvnw versions:set -DnewVersion=${TRAVIS_COMMIT}
 
 script:
