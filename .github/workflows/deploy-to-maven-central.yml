@@ -25,4 +25,4 @@ jobs:
         OSSRH_NEXUS_USERNAME: ${{ secrets.OSSRH_NEXUS_USERNAME }}
         OSSRH_NEXUS_PASSWORD: ${{ secrets.OSSRH_NEXUS_PASSWORD }}
         GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-      run: ./mvnw clean deploy -s settings.xml -B --no-transfer-progress
+      run: ./mvnw clean deploy -Pdeploy-to-maven-central -s settings.xml -B --no-transfer-progress
