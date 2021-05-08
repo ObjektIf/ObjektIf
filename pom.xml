@@ -37,6 +37,10 @@
     <system>github</system>
     <url>https://github.com/ObjektIf/ObjektIf/issues</url>
   </issueManagement>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
   <build>
     <pluginManagement>
       <plugins>
@@ -82,21 +86,37 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-gpg-plugin</artifactId>
           <version>3.0.1</version>
-          <executions>
-            <execution>
-              <id>sign-artifacts</id>
-              <phase>verify</phase>
-              <goals>
-                <goal>sign</goal>
-              </goals>
-            </execution>
-          </executions>
           <configuration>
             <executable>gpg2</executable>
             <gpgArguments>
               <arg>--pinentry-mode</arg>
               <arg>loopback</arg>
             </gpgArguments>
+          </configuration>
+          <executions>
+            <execution>
+              <id>sign-artifacts</id>
+              <goals>
+                <goal>sign</goal>
+              </goals>
+              <phase>verify</phase>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>com.github.ekryd.sortpom</groupId>
+          <artifactId>sortpom-maven-plugin</artifactId>
+          <version>3.0.0</version>
+          <configuration>
+            <createBackupFile>false</createBackupFile>
+            <lineSeparator>\n</lineSeparator>
+            <encoding>${project.build.sourceEncoding}</encoding>
+            <sortProperties>true</sortProperties>
+            <keepBlankLines>false</keepBlankLines>
+            <ignoreLineSeparators>false</ignoreLineSeparators>
+            <expandEmptyElements>false</expandEmptyElements>
+            <verifyFail>Stop</verifyFail>
+            <verifyFailOn>Strict</verifyFailOn>
           </configuration>
         </plugin>
       </plugins>
@@ -122,6 +142,47 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>verify</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.github.ekryd.sortpom</groupId>
+            <artifactId>sortpom-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>verify</goal>
+                </goals>
+                <phase>verify</phase>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>autofix</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.github.ekryd.sortpom</groupId>
+            <artifactId>sortpom-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>sort</goal>
+                </goals>
+                <phase>verify</phase>
+              </execution>
+            </executions>
           </plugin>
         </plugins>
       </build>
