@@ -20,11 +20,24 @@ jobs:
         distribution: 'adopt'
         server-id: 'ossrh'
         gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+
+    - name: get new version number and provide it
+      run: echo "new_version_number=$(./shellscripts/get_new_version_number.sh)" >> $GITHUB_ENV
+
     - name: print env
       run: env
+
+    - name: set new version to maven
+      run: mvn versions:set -DnewVersion="${{ env.new_version_number }}-${GITHUB_SHA}"
+
     - name: build and deploy
       env:
         OSSRH_NEXUS_USERNAME: ${{ secrets.OSSRH_NEXUS_USERNAME }}
         OSSRH_NEXUS_PASSWORD: ${{ secrets.OSSRH_NEXUS_PASSWORD }}
         GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
       run: ./mvnw clean deploy -Pdeploy-to-maven-central -s settings.xml -B --no-transfer-progress
+
+    - name: tag new version
+      uses: EndBug/latest-tag@latest
+      with:
+        tag-name: v${{ env.new_version_number }}
