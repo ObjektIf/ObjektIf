@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.objektif</groupId>
   <artifactId>ObjektIf-root</artifactId>
-  <version>gitTag_increment-and-commithash</version>
+  <version>buildnumber-and-commithash</version>
   <packaging>pom</packaging>
   <name>${project.groupId}:${project.artifactId}</name>
   <description>This kotlin lib should bring the control structure "if" as an object, since kotlin/java are object oriented. But the basic language features are not.</description>
