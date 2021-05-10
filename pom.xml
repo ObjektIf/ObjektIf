@@ -39,14 +39,6 @@
   </issueManagement>
   <properties>
     <license-maven-plugin.version>2.0.0</license-maven-plugin.version>
-    <license.canUpdateCopyright>true</license.canUpdateCopyright>
-    <license.copyrightOwners>Janosch Schwalm, Alexander Wirz</license.copyrightOwners>
-    <license.failOnMissingHeader>true</license.failOnMissingHeader>
-    <license.failOnNotUptodateHeader>true</license.failOnNotUptodateHeader>
-    <license.force>true</license.force>
-    <license.licenceFile>LICENSE</license.licenceFile>
-    <license.licenseName>bsd_3</license.licenseName>
-    <license.projectName>ObjektIf</license.projectName>
     <maven-dependency-plugin.version>3.1.2</maven-dependency-plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -133,6 +125,16 @@
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>license-maven-plugin</artifactId>
           <version>${license-maven-plugin.version}</version>
+          <configuration>
+            <canUpdateCopyright>true</canUpdateCopyright>
+            <copyrightOwners>Janosch Schwalm, Alexander Wirz</copyrightOwners>
+            <failOnMissingHeader>true</failOnMissingHeader>
+            <failOnNotUptodateHeader>true</failOnNotUptodateHeader>
+            <force>true</force>
+            <licenseFile>LICENSE</licenseFile>
+            <licenseName>bsd_3</licenseName>
+            <projectName>ObjektIf</projectName>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-dependency-plugin</artifactId>
