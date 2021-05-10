@@ -38,6 +38,15 @@
     <url>https://github.com/ObjektIf/ObjektIf/issues</url>
   </issueManagement>
   <properties>
+    <license-maven-plugin.version>2.0.0</license-maven-plugin.version>
+    <license.canUpdateCopyright>true</license.canUpdateCopyright>
+    <license.copyrightOwners>Janosch Schwalm, Alexander Wirz</license.copyrightOwners>
+    <license.failOnMissingHeader>true</license.failOnMissingHeader>
+    <license.failOnNotUptodateHeader>true</license.failOnNotUptodateHeader>
+    <license.force>true</license.force>
+    <license.licenceFile>LICENSE</license.licenceFile>
+    <license.licenseName>bsd_3</license.licenseName>
+    <license.projectName>ObjektIf</license.projectName>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
@@ -119,6 +128,11 @@
             <verifyFailOn>Strict</verifyFailOn>
           </configuration>
         </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>license-maven-plugin</artifactId>
+          <version>${license-maven-plugin.version}</version>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
@@ -165,6 +179,18 @@
               </execution>
             </executions>
           </plugin>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>license-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>check-file-header</goal>
+                </goals>
+                <phase>validate</phase>
+              </execution>
+            </executions>
+          </plugin>
         </plugins>
       </build>
     </profile>
@@ -181,6 +207,19 @@
                   <goal>sort</goal>
                 </goals>
                 <phase>verify</phase>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>license-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>update-file-header</goal>
+                  <goal>update-project-license</goal>
+                </goals>
+                <phase>validate</phase>
               </execution>
             </executions>
           </plugin>
