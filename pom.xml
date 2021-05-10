@@ -147,7 +147,7 @@
       </build>
     </profile>
     <profile>
-      <id>verify</id>
+      <id>lint</id>
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>
