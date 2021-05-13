@@ -38,11 +38,23 @@
     <url>https://github.com/ObjektIf/ObjektIf/issues</url>
   </issueManagement>
   <properties>
+    <extra-enforcer-rules.version>1.3</extra-enforcer-rules.version>
     <license-maven-plugin.version>2.0.0</license-maven-plugin.version>
     <maven-dependency-plugin.version>3.1.2</maven-dependency-plugin.version>
+    <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
+    <ossindex-maven-enforcer-rules.version>3.1.0</ossindex-maven-enforcer-rules.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.sonatype.ossindex.maven</groupId>
+        <artifactId>ossindex-maven-enforcer-rules</artifactId>
+        <version>${ossindex-maven-enforcer-rules.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
   <build>
     <pluginManagement>
       <plugins>
@@ -155,6 +167,51 @@
             </execution>
           </executions>
         </plugin>
+        <plugin>
+          <artifactId>maven-enforcer-plugin</artifactId>
+          <version>${maven-enforcer-plugin.version}</version>
+          <configuration>
+            <rules>
+              <banDistributionManagement/>
+              <banDuplicatePomDependencyVersions/>
+              <dependencyConvergence/>
+              <reactorModuleConvergence/>
+              <requireMavenVersion>
+                <version>3.8</version>
+              </requireMavenVersion>
+              <requireNoRepositories/>
+              <requireReleaseDeps>
+                <failWhenParentIsSnapshot>false</failWhenParentIsSnapshot>
+              </requireReleaseDeps>
+              <requireUpperBoundDeps/>
+              <banVulnerable implementation="org.sonatype.ossindex.maven.enforcer.BanVulnerableDependencies"/>
+              <banDuplicateClasses/>
+              <requirePropertyDiverges>
+                <property>project.artifactId</property>
+              </requirePropertyDiverges>
+              <banCircularDependencies/>
+            </rules>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>org.sonatype.ossindex.maven</groupId>
+              <artifactId>ossindex-maven-enforcer-rules</artifactId>
+              <version>${ossindex-maven-enforcer-rules.version}</version>
+            </dependency>
+            <dependency>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>extra-enforcer-rules</artifactId>
+              <version>${extra-enforcer-rules.version}</version>
+            </dependency>
+          </dependencies>
+          <executions>
+            <execution>
+              <goals>
+                <goal>enforce</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
@@ -215,6 +272,9 @@
           </plugin>
           <plugin>
             <artifactId>maven-dependency-plugin</artifactId>
+          </plugin>
+          <plugin>
+            <artifactId>maven-enforcer-plugin</artifactId>
           </plugin>
         </plugins>
       </build>
