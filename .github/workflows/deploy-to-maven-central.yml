@@ -23,7 +23,7 @@ jobs:
         gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
 
     - name: set new version to maven
-      run: mvn versions:set -DnewVersion="${GITHUB_RUN_NUMBER}-${GITHUB_SHA}"
+      run: ./mvnw versions:set -DnewVersion="${GITHUB_RUN_NUMBER}-${GITHUB_SHA}" -B --no-transfer-progress
 
     - name: build and deploy
       env:
