@@ -16,13 +16,10 @@ jobs:
     - name: Set up JDK 11
       uses: actions/setup-java@v2
       with:
-        java-version: '11'
+        java-version: '15'
         distribution: 'adopt'
         server-id: 'ossrh'
         gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
-
-    - name: print env
-      run: env
 
     - name: set new version to maven
       run: mvn versions:set -DnewVersion="${GITHUB_RUN_NUMBER}-${GITHUB_SHA}"
