@@ -1,4 +1,4 @@
-name: check if repo is dirty because of updateing version of dependencies
+name: find updates of dependencies or plugins
 
 on:
   schedule:
