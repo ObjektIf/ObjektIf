@@ -1,0 +1,17 @@
+name: check if repo is dirty because of updateing version of dependencies
+
+on:
+  schedule:
+    - cron: "0 12 * * *"
+
+jobs:
+    updateVersions:
+        name: update check
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout
+              uses: actions/checkout@v2
+            - name: Set up JDK
+              uses: actions/setup-java@v2
+            - name: '(hopefully dont) find updates'
+              run: ./mvn versions:display-property-updates | grep --files-without-match 'updates are available'
