@@ -12,8 +12,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 11
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: Set up JDK
       uses: actions/setup-java@v2
       with:
         java-version: '15'
@@ -31,7 +32,7 @@ jobs:
         GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
       run: ./mvnw clean deploy -Pdeploy-to-maven-central -s settings.xml -B --no-transfer-progress
 
-    - name: tag new version
-      uses: EndBug/latest-tag@latest
-      with:
-        tag-name: v${GITHUB_RUN_NUMBER}
+#    - name: tag new version
+#      uses: EndBug/latest-tag@v1.4.0
+#      with:
+#        tag-name: v${GITHUB_RUN_NUMBER}
