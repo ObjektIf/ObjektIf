@@ -23,7 +23,7 @@ jobs:
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
 
       - name: lint
-        run: ./mvnw clean isntall -Plint
+        run: ./mvnw clean install -Plint
 
       - name: set new version to maven
         run: ./mvnw versions:set -DnewVersion="${GITHUB_RUN_NUMBER}-${GITHUB_SHA}" -B --no-transfer-progress
