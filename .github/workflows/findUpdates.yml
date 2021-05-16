@@ -7,16 +7,16 @@ on:
     branches:
       - main
 jobs:
-    updateVersions:
-        name: update check
-        runs-on: ubuntu-latest
-        steps:
-            - name: checkout
-              uses: actions/checkout@v2
-            - name: Set up JDK
-              uses: actions/setup-java@v2
-              with:
-                java-version: '15'
-                distribution: 'adopt'
-            - name: '(hopefully dont) find updates'
-              run: /bin/bash -c "./mvnw versions:display-property-updates -B --no-transfer-progress | grep --files-without-match 'updates are available'"
+  updateVersions:
+    name: update check
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: "15"
+          distribution: "adopt"
+      - name: "(hopefully dont) find updates"
+        run: /bin/bash -c "./mvnw versions:display-property-updates -B --no-transfer-progress | grep --files-without-match 'updates are available'"

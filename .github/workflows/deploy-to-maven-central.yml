@@ -12,29 +12,28 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: checkout
-      uses: actions/checkout@v2
-    - name: Set up JDK
-      uses: actions/setup-java@v2
-      with:
-        java-version: '15'
-        distribution: 'adopt'
-        server-id: 'ossrh'
-        gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: "15"
+          distribution: "adopt"
+          server-id: "ossrh"
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
 
-    - name: lint
-      run: ./mvnw clean isntall -Plint
+      - name: lint
+        run: ./mvnw clean isntall -Plint
 
-    - name: set new version to maven
-      run: ./mvnw versions:set -DnewVersion="${GITHUB_RUN_NUMBER}-${GITHUB_SHA}" -B --no-transfer-progress
+      - name: set new version to maven
+        run: ./mvnw versions:set -DnewVersion="${GITHUB_RUN_NUMBER}-${GITHUB_SHA}" -B --no-transfer-progress
 
-    - name: build and deploy
-      env:
-        OSSRH_NEXUS_USERNAME: ${{ secrets.OSSRH_NEXUS_USERNAME }}
-        OSSRH_NEXUS_PASSWORD: ${{ secrets.OSSRH_NEXUS_PASSWORD }}
-        GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-      run: ./mvnw clean deploy -Pdeploy-to-maven-central -s settings.xml -B --no-transfer-progress
-
+      - name: build and deploy
+        env:
+          OSSRH_NEXUS_USERNAME: ${{ secrets.OSSRH_NEXUS_USERNAME }}
+          OSSRH_NEXUS_PASSWORD: ${{ secrets.OSSRH_NEXUS_PASSWORD }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: ./mvnw clean deploy -Pdeploy-to-maven-central -s settings.xml -B --no-transfer-progress
 #    - name: tag new version
 #      uses: EndBug/latest-tag@v1.4.0
 #      with:

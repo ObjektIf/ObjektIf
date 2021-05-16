@@ -5,11 +5,11 @@ on:
     - cron: "0 12 * * *"
 
 jobs:
-    findDirtyVersionTags:
-        name: version
-        runs-on: ubuntu-latest
-        steps:
-            - name: checkout
-              uses: actions/checkout@v2
-            - name: run script
-              run: ./shellscript/ensure_propert_is_used_for_version.sh
+  findDirtyVersionTags:
+    name: version
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: run script
+        run: ./shellscript/ensure_propert_is_used_for_version.sh
