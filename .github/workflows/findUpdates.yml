@@ -17,4 +17,4 @@ jobs:
                 java-version: '15'
                 distribution: 'adopt'
             - name: '(hopefully dont) find updates'
-              run: ./mvn versions:display-property-updates -B --no-transfer-progress | grep --files-without-match 'updates are available'
+              run: /bin/bash -c "./mvn versions:display-property-updates -B --no-transfer-progress | grep --files-without-match 'updates are available'"
