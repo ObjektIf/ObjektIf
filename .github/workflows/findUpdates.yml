@@ -3,7 +3,9 @@ name: find updates of dependencies or plugins
 on:
   schedule:
     - cron: "0 12 * * *"
-
+  push:
+    branches:
+      - main
 jobs:
     updateVersions:
         name: update check
