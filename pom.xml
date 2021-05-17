@@ -41,7 +41,7 @@
     <diktat.version>0.5.3</diktat.version>
     <extra-enforcer-rules.version>1.3</extra-enforcer-rules.version>
     <ktfmt.version>0.25</ktfmt.version>
-    <ktlint.version>0.41.0</ktlint.version>
+    <ktlint-maven-plugin.version>1.9.0</ktlint-maven-plugin.version>
     <license-maven-plugin.version>2.0.0</license-maven-plugin.version>
     <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
     <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
@@ -78,13 +78,6 @@
         <groupId>com.facebook</groupId>
         <artifactId>ktfmt</artifactId>
         <version>${ktfmt.version}</version>
-        <scope>provided</scope>
-      </dependency>
-      <!-- just to get the version number and use this version number for spotless-->
-      <dependency>
-        <groupId>com.pinterest.ktlint</groupId>
-        <artifactId>ktlint-core</artifactId>
-        <version>${ktlint.version}</version>
         <scope>provided</scope>
       </dependency>
       <!-- just to get the version number and use this version number for spotless-->
@@ -287,13 +280,18 @@
               <ktfmt>
                 <version>${ktfmt.version}</version>
               </ktfmt>
-              <ktlint>
-                <version>${ktlint.version}</version>
-              </ktlint>
               <diktat>
                 <version>${diktat.version}</version>
               </diktat>
             </kotlin>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>com.github.gantsign.maven</groupId>
+          <artifactId>ktlint-maven-plugin</artifactId>
+          <version>${ktlint-maven-plugin.version}</version>
+          <configuration>
+            <experimental>true</experimental>
           </configuration>
         </plugin>
         <!--        maven plugins-->
@@ -410,6 +408,17 @@
               </execution>
             </executions>
           </plugin>
+          <plugin>
+            <groupId>com.github.gantsign.maven</groupId>
+            <artifactId>ktlint-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>check</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
         </plugins>
       </build>
     </profile>
@@ -456,6 +465,17 @@
                   <goal>apply</goal>
                 </goals>
                 <phase>validate</phase>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>com.github.gantsign.maven</groupId>
+            <artifactId>ktlint-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>format</goal>
+                </goals>
               </execution>
             </executions>
           </plugin>
