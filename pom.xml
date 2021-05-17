@@ -38,6 +38,7 @@
     <url>https://github.com/ObjektIf/ObjektIf/issues</url>
   </issueManagement>
   <properties>
+    <detekt-maven-plugin.version>1.17.0</detekt-maven-plugin.version>
     <diktat.version>0.5.3</diktat.version>
     <extra-enforcer-rules.version>1.3</extra-enforcer-rules.version>
     <ktfmt.version>0.25</ktfmt.version>
@@ -61,7 +62,10 @@
     <prettier.version>2.3.0</prettier.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <reference-file-dir>${root-dir}${file.separator}referenceFiles</reference-file-dir>
     <required-maven.version>3.8</required-maven.version>
+    <!--suppress UnresolvedMavenProperty -->
+    <root-dir>${maven.multiModuleProjectDirectory}</root-dir>
     <sortpom-maven-plugin.version>3.0.0</sortpom-maven-plugin.version>
     <spotless-maven-plugin.version>2.11.1</spotless-maven-plugin.version>
     <versions-maven-plugin.version>2.8.1</versions-maven-plugin.version>
@@ -294,6 +298,11 @@
             <experimental>true</experimental>
           </configuration>
         </plugin>
+        <plugin>
+          <groupId>com.github.ozsie</groupId>
+          <artifactId>detekt-maven-plugin</artifactId>
+          <version>${detekt-maven-plugin.version}</version>
+        </plugin>
         <!--        maven plugins-->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -419,6 +428,21 @@
               </execution>
             </executions>
           </plugin>
+          <plugin>
+            <groupId>com.github.ozsie</groupId>
+            <artifactId>detekt-maven-plugin</artifactId>
+            <configuration>
+              <config>${reference-file-dir}${file.separator}detekt.yml</config>
+              <autoCorrect>false</autoCorrect>
+            </configuration>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>check</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
         </plugins>
       </build>
     </profile>
@@ -475,6 +499,21 @@
               <execution>
                 <goals>
                   <goal>format</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>com.github.ozsie</groupId>
+            <artifactId>detekt-maven-plugin</artifactId>
+            <configuration>
+              <config>${reference-file-dir}${file.separator}detekt.yml</config>
+              <autoCorrect>true</autoCorrect>
+            </configuration>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>check</goal>
                 </goals>
               </execution>
             </executions>
