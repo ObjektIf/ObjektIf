@@ -3,6 +3,7 @@ package io.github.objektif
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.gherkin.Feature
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 
 /* -
  * #%L
@@ -47,6 +48,19 @@ object FirstTest : Spek({
                     sut.isTrue { lambdaValue = "set" }
                     this@Scenario.Then("lambda is executed") {
                         assertEquals(lambdaValue, "set")
+                    }
+                }
+            }
+        }
+
+        Scenario("second test, with new if") {
+            Given("a new 'false' if") {
+                val sut = If(false)
+                this@Scenario.When("condition is false ") {
+                    var changed = false
+                    sut.isTrue { changed = true }
+                    this@Scenario.Then("lambda is not executed") {
+                        assertFalse(changed)
                     }
                 }
             }
