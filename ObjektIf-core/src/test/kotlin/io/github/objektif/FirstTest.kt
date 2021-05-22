@@ -1,9 +1,7 @@
 package io.github.objektif
 
-import org.spekframework.spek2.Spek
-import org.spekframework.spek2.style.gherkin.Feature
-import kotlin.test.assertEquals
-import kotlin.test.assertFalse
+import io.kotest.core.spec.style.BehaviorSpec
+import io.kotest.matchers.shouldBe
 
 /* -
  * #%L
@@ -38,31 +36,25 @@ import kotlin.test.assertFalse
  * #L%
  */
 /** basic if test. */
-object FirstTest : Spek({
-    Feature("basic if tests") {
-        Scenario("first test, with new if") {
-            Given("a new if") {
-                val sut = If(true)
-                this@Scenario.When("condition is true ") {
-                    var lambdaValue = "something"
-                    sut.isTrue { lambdaValue = "set" }
-                    this@Scenario.Then("lambda is executed") {
-                        assertEquals(lambdaValue, "set")
-                    }
-                }
+class FirstTest : BehaviorSpec({
+//    context("first test, with new if") {
+    Given("a new if") {
+        val sut = If(true)
+        When("condition is true ") {
+            var changed = false
+            sut.isTrue { changed = true }
+            Then("lambda is executed") {
+                changed shouldBe true
             }
         }
-
-        Scenario("second test, with new if") {
-            Given("a new 'false' if") {
-                val sut = If(false)
-                this@Scenario.When("condition is false ") {
-                    var changed = false
-                    sut.isTrue { changed = true }
-                    this@Scenario.Then("lambda is not executed") {
-                        assertFalse(changed)
-                    }
-                }
+    }
+    Given("a new 'false' if") {
+        val sut = If(false)
+        When("condition is false ") {
+            var changed = false
+            sut.isTrue { changed = true }
+            Then("lambda is not executed") {
+                changed shouldBe false
             }
         }
     }
