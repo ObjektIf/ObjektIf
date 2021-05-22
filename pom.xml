@@ -38,6 +38,7 @@
     <url>https://github.com/ObjektIf/ObjektIf/issues</url>
   </issueManagement>
   <properties>
+    <annotations.version>21.0.0</annotations.version>
     <detekt-maven-plugin.version>1.17.0</detekt-maven-plugin.version>
     <diktat.version>0.5.3</diktat.version>
     <extra-enforcer-rules.version>1.3</extra-enforcer-rules.version>
@@ -116,7 +117,7 @@
       <dependency>
         <groupId>org.jetbrains</groupId>
         <artifactId>annotations</artifactId>
-        <version>15.0</version>
+        <version>${annotations.version}</version>
       </dependency>
       <dependency>
         <groupId>org.spekframework.spek2</groupId>
