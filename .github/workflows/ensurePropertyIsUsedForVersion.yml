@@ -3,6 +3,9 @@ name: version should be declared as maven property
 on:
   schedule:
     - cron: "0 12 * * *"
+  push:
+    branches:
+      - main
 
 jobs:
   findDirtyVersionTags:
@@ -12,4 +15,4 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: run script
-        run: ./shellscript/ensure_propert_is_used_for_version.sh
+        run: ./shellscript/ensure_property_is_used_for_version.sh
