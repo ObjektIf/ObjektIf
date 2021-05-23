@@ -37,7 +37,6 @@ import io.kotest.matchers.shouldBe
  */
 /** basic if test. */
 class FirstTest : BehaviorSpec({
-//    context("first test, with new if") {
     Given("a new if") {
         val sut = If(true)
         When("condition is true ") {
