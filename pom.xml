@@ -49,7 +49,7 @@
     <junit-platform-engine.version>1.8.0-M1</junit-platform-engine.version>
     <kotest.version>4.6.0</kotest.version>
     <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
-    <kotlin.version>1.5.0</kotlin.version>
+    <kotlin.version>1.5.10</kotlin.version>
     <ktfmt.version>0.25</ktfmt.version>
     <ktlint-maven-plugin.version>1.9.0</ktlint-maven-plugin.version>
     <license-maven-plugin.version>2.0.0</license-maven-plugin.version>
