@@ -30,7 +30,7 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  * #L%
  */
-package io.github.objektif
+package io.github.objektif.booleanif
 
 /**
  * The replacement for the "old" if.
