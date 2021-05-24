@@ -33,13 +33,11 @@
 package io.github.objektif
 
 /**
- * The simple implementation for [BooleanIf].
+ * The replacement for the "old" if.
  */
-class SimpleBooleanIf(private val condition: Boolean) : BooleanIf {
-
-    override fun isTrue(lambda: () -> Unit) {
-        if (condition) {
-            lambda()
-        }
-    }
+interface BooleanIf {
+    /**
+     * The lambda will be executed, when the condition is met.
+     */
+    fun isTrue(lambda: () -> Unit)
 }
