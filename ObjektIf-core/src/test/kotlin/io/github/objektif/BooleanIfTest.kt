@@ -1,4 +1,9 @@
-/*-
+package io.github.objektif
+
+import io.kotest.core.spec.style.BehaviorSpec
+import io.kotest.matchers.shouldBe
+
+/* -
  * #%L
  * ObjektIf
  * %%
@@ -30,18 +35,26 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  * #L%
  */
-package io.github.objektif
-
-/**
- * The replacement for the "old" if.
- */
-class If(private val condition: Boolean) {
-    /**
-     * The lambda will be executed, when the condition is met.
-     */
-    fun isTrue(lambda: () -> Unit) {
-        if (condition) {
-            lambda()
+/** basic if test. */
+class BooleanIfTest : BehaviorSpec({
+    Given("a new if") {
+        val sut = SimpleBooleanIf(true)
+        When("condition is true ") {
+            var changed = false
+            sut.isTrue { changed = true }
+            Then("lambda is executed") {
+                changed shouldBe true
+            }
         }
     }
-}
+    Given("a new 'false' if") {
+        val sut = SimpleBooleanIf(false)
+        When("condition is false ") {
+            var changed = false
+            sut.isTrue { changed = true }
+            Then("lambda is not executed") {
+                changed shouldBe false
+            }
+        }
+    }
+})
