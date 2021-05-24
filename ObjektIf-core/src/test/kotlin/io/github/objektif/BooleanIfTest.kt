@@ -1,8 +1,3 @@
-package io.github.objektif
-
-import io.kotest.core.spec.style.BehaviorSpec
-import io.kotest.matchers.shouldBe
-
 /* -
  * #%L
  * ObjektIf
@@ -35,8 +30,13 @@ import io.kotest.matchers.shouldBe
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  * #L%
  */
+package io.github.objektif
+
+import io.kotest.core.spec.style.BehaviorSpec
+import io.kotest.matchers.shouldBe
+
 /** basic if test. */
-class BooleanIfTest : BehaviorSpec({
+internal class BooleanIfTest : BehaviorSpec({
     Given("a new if") {
         val sut = SimpleBooleanIf(true)
         When("condition is true ") {
