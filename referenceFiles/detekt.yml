@@ -110,7 +110,15 @@ complexity:
     active: true
   StringLiteralDuplication:
     active: true
-    #    excludes: ['**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/jsTest/**', '**/iosTest/**']
+    excludes:
+      [
+        "**/test/**",
+        "**/androidTest/**",
+        "**/commonTest/**",
+        "**/jvmTest/**",
+        "**/jsTest/**",
+        "**/iosTest/**",
+      ]
     threshold: 2
     ignoreAnnotation: true
     excludeStringsWithLessThan5Characters: true
