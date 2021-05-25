@@ -50,7 +50,6 @@
     <kotest.version>4.6.0</kotest.version>
     <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
     <kotlin.version>1.5.20-M1</kotlin.version>
-    <ktfmt.version>0.25</ktfmt.version>
     <ktlint-maven-plugin.version>1.9.0</ktlint-maven-plugin.version>
     <license-maven-plugin.version>2.0.0</license-maven-plugin.version>
     <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
@@ -86,14 +85,6 @@
         <artifactId>ossindex-maven-enforcer-rules</artifactId>
         <version>${ossindex-maven-enforcer-rules.version}</version>
       </dependency>
-      <!-- just to get the version number and use this version number for spotless-->
-      <dependency>
-        <groupId>com.facebook</groupId>
-        <artifactId>ktfmt</artifactId>
-        <version>${ktfmt.version}</version>
-        <scope>provided</scope>
-      </dependency>
-      <!-- just to get the version number and use this version number for spotless-->
       <dependency>
         <groupId>org.jetbrains.kotlin</groupId>
         <artifactId>kotlin-stdlib</artifactId>
