@@ -38,7 +38,7 @@
     <url>https://github.com/ObjektIf/ObjektIf/issues</url>
   </issueManagement>
   <properties>
-    <annotations.version>21.0.0</annotations.version>
+    <annotations.version>21.0.1</annotations.version>
     <apiguardian-api.version>1.1.1</apiguardian-api.version>
     <detekt-maven-plugin.version>1.17.1</detekt-maven-plugin.version>
     <diktat.version>0.5.3</diktat.version>
