@@ -52,7 +52,7 @@
       <dependency>
         <groupId>org.sonatype.ossindex.maven</groupId>
         <artifactId>ossindex-maven-enforcer-rules</artifactId>
-        <version>3.1.0</version>
+        <version>3.0.4</version>
       </dependency>
       <dependency>
         <groupId>org.jetbrains.kotlin</groupId>
@@ -393,7 +393,7 @@
         <plugin>
           <groupId>org.jetbrains.kotlin</groupId>
           <artifactId>kotlin-maven-plugin</artifactId>
-          <version>1.5.20-M1</version>
+          <version>1.5.10</version>
           <configuration>
             <correctErrorTypes>true</correctErrorTypes>
             <args>
