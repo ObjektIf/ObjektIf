@@ -413,7 +413,7 @@
         <plugin>
           <groupId>org.cqfn.diktat</groupId>
           <artifactId>diktat-maven-plugin</artifactId>
-          <version>0.5.3</version>
+          <version>0.6.0</version>
           <configuration>
             <diktatConfigFile>${reference-file-dir}${file.separator}diktat-analysis.yml</diktatConfigFile>
           </configuration>
