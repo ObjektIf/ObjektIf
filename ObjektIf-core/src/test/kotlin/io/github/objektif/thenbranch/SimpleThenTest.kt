@@ -30,14 +30,32 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  * #L%
  */
-package io.github.objektif.then
+package io.github.objektif.thenbranch
 
-/**
- * Simple implementation of [Then].
- */
-class SimpleThen(private val success: Boolean) : Then {
+import io.kotest.core.spec.style.BehaviorSpec
+import io.kotest.matchers.shouldBe
 
-    override fun Then(lambda: () -> Unit) {
-        if (success) { lambda() }
+internal class SimpleThenTest : BehaviorSpec({
+
+    Given("a \"true\" then") {
+        val sut = SimpleThen(true)
+        When("a lambda is passed") {
+            var changed = false
+            sut.Then { changed = true }
+            Then("lambda is executed") {
+                changed shouldBe true
+            }
+        }
     }
-}
+
+    Given("a \"false\" then") {
+        val sut = SimpleThen(false)
+        When("a lambda is passed") {
+            var changed = false
+            sut.Then { changed = true }
+            Then("lambda is not executed") {
+                changed shouldBe false
+            }
+        }
+    }
+})

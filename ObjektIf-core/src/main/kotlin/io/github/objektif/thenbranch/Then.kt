@@ -30,7 +30,7 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  * #L%
  */
-package io.github.objektif.then
+package io.github.objektif.thenbranch
 
 /**
  * Here it is decided whether the lambda is executed or not.
