@@ -395,7 +395,7 @@ naming:
   FunctionNaming:
     active: true
     #    excludes: ['**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/jsTest/**', '**/iosTest/**']
-    functionPattern: "([a-z][a-zA-Z0-9]*)|(`.*`)|Then"
+    functionPattern: "([a-z][a-zA-Z0-9]*)|(`.*`)|Then|Else"
     excludeClassPattern: "$^"
     ignoreOverridden: true
     ignoreAnnotated: ["Composable"]
