@@ -1,4 +1,4 @@
-/*-
+/* -
  * #%L
  * ObjektIf
  * %%
@@ -30,44 +30,30 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  * #L%
  */
-package io.github.objektif.nullif
+package io.github.objektif.ifs.booleanif
 
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
 
-internal class NullIfTest : BehaviorSpec({
-    Given("an null object") {
-        val sut = null
-        When("Testing for null") {
+/** basic if test. */
+internal class BooleanIfTest : BehaviorSpec({
+    Given("a new if") {
+        val sut = SimpleBooleanIf(true)
+        When("condition is true ") {
             var changed = false
-            SimpleNullIf(sut).isNull { changed = true }
+            sut.isTrue { changed = true }
             Then("lambda is executed") {
                 changed shouldBe true
-            }
-        }
-        When("Testing for not null") {
-            var changed = false
-            SimpleNullIf(sut).isNotNull { changed = true }
-            Then("lambda is not executed") {
-                changed shouldBe false
             }
         }
     }
-
-    Given("an not null object") {
-        val sut = "something"
-        When("Testing for null") {
+    Given("a new 'false' if") {
+        val sut = SimpleBooleanIf(false)
+        When("condition is false ") {
             var changed = false
-            SimpleNullIf(sut).isNull { changed = true }
+            sut.isTrue { changed = true }
             Then("lambda is not executed") {
                 changed shouldBe false
-            }
-        }
-        When("Testing for not null") {
-            var changed = false
-            SimpleNullIf(sut).isNotNull { changed = true }
-            Then("lambda is executed") {
-                changed shouldBe true
             }
         }
     }

@@ -30,15 +30,20 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  * #L%
  */
-package io.github.objektif.booleanif
+package io.github.objektif.ifs.nullif
 
 /**
- * The simple implementation for [BooleanIf].
+ * The simple implementation for [NullIf].
  */
-class SimpleBooleanIf(private val condition: Boolean) : BooleanIf {
+class SimpleNullIf(private val objekt: Any?) : NullIf {
+    override fun isNull(lambda: () -> Unit) {
+        if (objekt == null) {
+            lambda()
+        }
+    }
 
-    override fun isTrue(lambda: () -> Unit) {
-        if (condition) {
+    override fun isNotNull(lambda: () -> Unit) {
+        if (objekt != null) {
             lambda()
         }
     }

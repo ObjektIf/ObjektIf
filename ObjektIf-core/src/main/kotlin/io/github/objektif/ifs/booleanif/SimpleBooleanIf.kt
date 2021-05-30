@@ -1,4 +1,4 @@
-/* -
+/*-
  * #%L
  * ObjektIf
  * %%
@@ -30,31 +30,16 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  * #L%
  */
-package io.github.objektif.booleanif
+package io.github.objektif.ifs.booleanif
 
-import io.kotest.core.spec.style.BehaviorSpec
-import io.kotest.matchers.shouldBe
+/**
+ * The simple implementation for [BooleanIf].
+ */
+class SimpleBooleanIf(private val condition: Boolean) : BooleanIf {
 
-/** basic if test. */
-internal class BooleanIfTest : BehaviorSpec({
-    Given("a new if") {
-        val sut = SimpleBooleanIf(true)
-        When("condition is true ") {
-            var changed = false
-            sut.isTrue { changed = true }
-            Then("lambda is executed") {
-                changed shouldBe true
-            }
+    override fun isTrue(lambda: () -> Unit) {
+        if (condition) {
+            lambda()
         }
     }
-    Given("a new 'false' if") {
-        val sut = SimpleBooleanIf(false)
-        When("condition is false ") {
-            var changed = false
-            sut.isTrue { changed = true }
-            Then("lambda is not executed") {
-                changed shouldBe false
-            }
-        }
-    }
-})
+}

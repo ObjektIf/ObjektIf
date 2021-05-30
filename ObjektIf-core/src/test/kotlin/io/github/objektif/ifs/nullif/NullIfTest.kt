@@ -30,19 +30,45 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  * #L%
  */
-package io.github.objektif.nullif
+package io.github.objektif.ifs.nullif
 
-/**
- * An if which deals with null objects.
- */
-interface NullIf {
-    /**
-     * The lambda will be executed, when the underlying object is null.
-     */
-    fun isNull(lambda: () -> Unit)
+import io.kotest.core.spec.style.BehaviorSpec
+import io.kotest.matchers.shouldBe
 
-    /**
-     * The lambda will be executed, when the underlying object is not null.
-     */
-    fun isNotNull(lambda: () -> Unit)
-}
+internal class NullIfTest : BehaviorSpec({
+    Given("an null object") {
+        val sut = null
+        When("Testing for null") {
+            var changed = false
+            SimpleNullIf(sut).isNull { changed = true }
+            Then("lambda is executed") {
+                changed shouldBe true
+            }
+        }
+        When("Testing for not null") {
+            var changed = false
+            SimpleNullIf(sut).isNotNull { changed = true }
+            Then("lambda is not executed") {
+                changed shouldBe false
+            }
+        }
+    }
+
+    Given("an not null object") {
+        val sut = "something"
+        When("Testing for null") {
+            var changed = false
+            SimpleNullIf(sut).isNull { changed = true }
+            Then("lambda is not executed") {
+                changed shouldBe false
+            }
+        }
+        When("Testing for not null") {
+            var changed = false
+            SimpleNullIf(sut).isNotNull { changed = true }
+            Then("lambda is executed") {
+                changed shouldBe true
+            }
+        }
+    }
+})

@@ -30,14 +30,19 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  * #L%
  */
-package io.github.objektif.booleanif
+package io.github.objektif.ifs.nullif
 
 /**
- * The replacement for the "old" if.
+ * An if which deals with null objects.
  */
-interface BooleanIf {
+interface NullIf {
     /**
-     * The lambda will be executed, when the condition is met.
+     * The lambda will be executed, when the underlying object is null.
      */
-    fun isTrue(lambda: () -> Unit)
+    fun isNull(lambda: () -> Unit)
+
+    /**
+     * The lambda will be executed, when the underlying object is not null.
+     */
+    fun isNotNull(lambda: () -> Unit)
 }
