@@ -125,7 +125,7 @@
       <dependency>
         <groupId>org.jetbrains.kotlin</groupId>
         <artifactId>kotlin-reflect</artifactId>
-        <version>1.5.20-RC</version>
+        <version>1.5.21</version>
       </dependency>
       <dependency>
         <groupId>org.junit.platform</groupId>
