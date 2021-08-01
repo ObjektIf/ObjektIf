@@ -82,7 +82,7 @@
       <dependency>
         <groupId>io.kotest</groupId>
         <artifactId>kotest-runner-junit5-jvm</artifactId>
-        <version>4.6.0</version>
+        <version>4.6.1</version>
         <scope>test</scope>
         <exclusions>
           <exclusion>
@@ -393,7 +393,7 @@
         <plugin>
           <groupId>org.jetbrains.kotlin</groupId>
           <artifactId>kotlin-maven-plugin</artifactId>
-          <version>1.5.10</version>
+          <version>1.5.21</version>
           <configuration>
             <correctErrorTypes>true</correctErrorTypes>
             <args>
