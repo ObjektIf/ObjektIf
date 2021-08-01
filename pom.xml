@@ -145,7 +145,7 @@
       <dependency>
         <groupId>io.kotest</groupId>
         <artifactId>kotest-framework-api-jvm</artifactId>
-        <version>4.6.0</version>
+        <version>4.6.1</version>
         <scope>test</scope>
         <exclusions>
           <exclusion>
