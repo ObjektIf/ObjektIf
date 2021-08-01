@@ -391,11 +391,12 @@ naming:
   FunctionMinLength:
     active: true
     #    excludes: ['**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/jsTest/**', '**/iosTest/**']
+    excludes: ["**/io/github/objektif/Objekt.kt"]
     minimumFunctionNameLength: 3
   FunctionNaming:
     active: true
     #    excludes: ['**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/jsTest/**', '**/iosTest/**']
-    functionPattern: "([a-z][a-zA-Z0-9]*)|(`.*`)|Then|Else"
+    functionPattern: "([a-z][a-zA-Z0-9]*)|(`.*`)|Then|Else|If"
     excludeClassPattern: "$^"
     ignoreOverridden: true
     ignoreAnnotated: ["Composable"]

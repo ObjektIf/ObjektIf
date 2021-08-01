@@ -30,14 +30,29 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  * #L%
  */
-package io.github.objektif.ifs.booleanif
+package io.github.objektif
 
-/**
- * The replacement for the "old" if.
- */
-interface BooleanIf {
-    /**
-     * The lambda will be executed, when the condition is met.
-     */
-    infix fun isTrue(lambda: () -> Unit)
-}
+import io.github.objektif.ifs.booleanif.BooleanIf
+import io.github.objektif.ifs.nullif.NullIf
+import io.kotest.core.spec.style.BehaviorSpec
+import io.kotest.matchers.should
+import io.kotest.matchers.types.beInstanceOf
+
+internal class ObjektTest : BehaviorSpec({
+
+    Given("the main entry point") {
+
+        When("passing boolean parameter") {
+            val booleanIf: Any = Objekt If true
+            Then("if is an Booleanif") {
+                booleanIf should beInstanceOf<BooleanIf>()
+            }
+        }
+        When("passing String parameter") {
+            val nullIf: Any = Objekt If ""
+            Then("if is an NullIf") {
+                nullIf should beInstanceOf<NullIf>()
+            }
+        }
+    }
+})

@@ -30,14 +30,17 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  * #L%
  */
-package io.github.objektif.ifs.booleanif
+package io.github.objektif
+
+import io.github.objektif.ifs.booleanif.SimpleBooleanIf
+import io.github.objektif.ifs.nullif.SimpleNullIf
 
 /**
- * The replacement for the "old" if.
+ * This is the main entrypoint of this library. One should only use this class.
  */
-interface BooleanIf {
-    /**
-     * The lambda will be executed, when the condition is met.
-     */
-    infix fun isTrue(lambda: () -> Unit)
+object Objekt {
+
+    infix fun If(bool: Boolean) = SimpleBooleanIf(bool)
+
+    infix fun If(bool: Any) = SimpleNullIf(bool)
 }

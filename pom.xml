@@ -396,6 +396,7 @@
           <version>1.5.21</version>
           <configuration>
             <correctErrorTypes>true</correctErrorTypes>
+            <jvmTarget>1.8</jvmTarget>
             <args>
               <arg>-Werror</arg>
               <arg>-Xjsr305=strict</arg>
