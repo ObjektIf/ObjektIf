@@ -13,11 +13,6 @@
       <artifactId>kotlin-stdlib</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.jetbrains</groupId>
-      <artifactId>annotations</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>io.kotest</groupId>
       <artifactId>kotest-runner-junit5-jvm</artifactId>
       <scope>test</scope>
