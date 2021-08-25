@@ -82,6 +82,7 @@
       <dependency>
         <groupId>io.kotest</groupId>
         <artifactId>kotest-runner-junit5-jvm</artifactId>
+        <!-- ensure to update the version for in ignoredUnusedDeclaredDependency in maven-dependency-plugin -->
         <version>4.6.2</version>
         <scope>test</scope>
       </dependency>
@@ -226,14 +227,14 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
-          <version>3.2.0</version>
+          <version>3.1.2</version>
           <configuration>
             <failBuild>true</failBuild>
             <failOnMissingClassifierArtifact>true</failOnMissingClassifierArtifact>
             <failOnWarning>true</failOnWarning>
             <scriptableOutput>true</scriptableOutput>
             <ignoredUnusedDeclaredDependencies>
-              <ignoredUnusedDeclaredDependency>io.kotest:kotest-runner-junit5-jvm:jar:4.6.0</ignoredUnusedDeclaredDependency>
+              <ignoredUnusedDeclaredDependency>io.kotest:kotest-runner-junit5-jvm:jar:4.6.2</ignoredUnusedDeclaredDependency>
             </ignoredUnusedDeclaredDependencies>
           </configuration>
           <executions>
