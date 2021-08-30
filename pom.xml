@@ -312,7 +312,7 @@
         <plugin>
           <groupId>com.github.gantsign.maven</groupId>
           <artifactId>ktlint-maven-plugin</artifactId>
-          <version>1.10.1</version>
+          <version>1.10.2</version>
           <configuration>
             <experimental>true</experimental>
           </configuration>
