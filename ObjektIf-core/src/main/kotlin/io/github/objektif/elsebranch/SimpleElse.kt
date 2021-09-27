@@ -35,9 +35,9 @@ package io.github.objektif.elsebranch
 /**
  * Simple implementation of [Else].
  */
-class SimpleElse(private val failed: Boolean) : Else {
+class SimpleElse(private val useElseBranch: Boolean) : Else {
 
     override fun Else(lambda: () -> Unit) {
-        if (this.failed) { lambda() }
+        if (this.useElseBranch) { lambda() }
     }
 }
