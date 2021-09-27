@@ -41,7 +41,7 @@ internal class BooleanIfTest : BehaviorSpec({
         val sut = SimpleBooleanIf(true)
         When("condition is true ") {
             var changed = false
-            sut.isTrue { changed = true }
+            sut.isTrue().Then { changed = true }
             Then("lambda is executed") {
                 changed shouldBe true
             }
@@ -51,7 +51,7 @@ internal class BooleanIfTest : BehaviorSpec({
         val sut = SimpleBooleanIf(false)
         When("condition is false ") {
             var changed = false
-            sut.isTrue { changed = true }
+            sut.isTrue().Then { changed = true }
             Then("lambda is not executed") {
                 changed shouldBe false
             }

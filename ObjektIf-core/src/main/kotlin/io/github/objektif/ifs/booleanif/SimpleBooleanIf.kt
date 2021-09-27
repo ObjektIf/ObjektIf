@@ -32,18 +32,13 @@
  */
 package io.github.objektif.ifs.booleanif
 
-import io.github.objektif.elsebranch.Else
-import io.github.objektif.elsebranch.SimpleElse
+import io.github.objektif.thenbranch.SimpleThen
+import io.github.objektif.thenbranch.Then
 
 /**
  * The simple implementation for [BooleanIf].
  */
 class SimpleBooleanIf(private val condition: Boolean) : BooleanIf {
 
-    override fun isTrue(lambda: () -> Unit): Else {
-        if (condition) {
-            lambda()
-        }
-        return SimpleElse(!condition)
-    }
+    override fun isTrue(): Then = SimpleThen(condition)
 }

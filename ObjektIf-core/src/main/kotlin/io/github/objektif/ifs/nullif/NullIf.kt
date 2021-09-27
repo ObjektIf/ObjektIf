@@ -32,19 +32,19 @@
  */
 package io.github.objektif.ifs.nullif
 
-import io.github.objektif.elsebranch.Else
+import io.github.objektif.thenbranch.Then
 
 /**
  * An if which deals with null objects.
  */
 interface NullIf {
     /**
-     * The lambda will be executed, when the underlying object is null.
+     * Checking if the underlying object is null.
      */
-    infix fun isNull(lambda: () -> Unit): Else
+    fun isNull(): Then
 
     /**
-     * The lambda will be executed, when the underlying object is not null.
+     * Checking if the underlying object is not null.
      */
-    infix fun isNotNull(lambda: () -> Unit): Else
+    fun isNotNull(): Then
 }

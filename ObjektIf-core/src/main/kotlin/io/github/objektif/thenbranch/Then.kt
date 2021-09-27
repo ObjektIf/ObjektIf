@@ -32,6 +32,8 @@
  */
 package io.github.objektif.thenbranch
 
+import io.github.objektif.elsebranch.Else
+
 /**
  * Here it is decided whether the lambda is executed or not.
  */
@@ -39,5 +41,5 @@ interface Then {
     /**
      * This lambda will be executed, when the "if-condition" is met.
      */
-    infix fun Then(lambda: () -> Unit)
+    infix fun Then(lambda: () -> Unit): Else
 }

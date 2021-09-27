@@ -40,14 +40,14 @@ internal class NullIfTest : BehaviorSpec({
         val sut = null
         When("Testing for null") {
             var changed = false
-            SimpleNullIf(sut).isNull { changed = true }
+            SimpleNullIf(sut).isNull().Then { changed = true }
             Then("lambda is executed") {
                 changed shouldBe true
             }
         }
         When("Testing for not null") {
             var changed = false
-            SimpleNullIf(sut).isNotNull { changed = true }
+            SimpleNullIf(sut).isNotNull().Then { changed = true }
             Then("lambda is not executed") {
                 changed shouldBe false
             }
@@ -58,14 +58,14 @@ internal class NullIfTest : BehaviorSpec({
         val sut = "something"
         When("Testing for null") {
             var changed = false
-            SimpleNullIf(sut).isNull { changed = true }
+            SimpleNullIf(sut).isNull().Then { changed = true }
             Then("lambda is not executed") {
                 changed shouldBe false
             }
         }
         When("Testing for not null") {
             var changed = false
-            SimpleNullIf(sut).isNotNull { changed = true }
+            SimpleNullIf(sut).isNotNull().Then { changed = true }
             Then("lambda is executed") {
                 changed shouldBe true
             }

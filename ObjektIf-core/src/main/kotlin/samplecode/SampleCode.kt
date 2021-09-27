@@ -46,6 +46,9 @@ object SampleCode {
  * The main entry point to show the usage.
  */
 fun main() {
-    If(SampleCode.aBoolean) isTrue { print("a boolean was true") }
-    If(SampleCode.anotherBoolean).isTrue { print("another boolean was true") }
+    If(SampleCode.aBoolean).isTrue().Then { println("a boolean was true") }.Else { println("a boolean was false") }
+
+    If(SampleCode.anotherBoolean).isTrue()
+        .Then { println("another boolean was true") }
+        .Else { println("another boolean was false") }
 }

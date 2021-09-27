@@ -32,12 +32,16 @@
  */
 package io.github.objektif.thenbranch
 
+import io.github.objektif.elsebranch.Else
+import io.github.objektif.elsebranch.SimpleElse
+
 /**
  * Simple implementation of [Then].
  */
 class SimpleThen(private val success: Boolean) : Then {
 
-    override fun Then(lambda: () -> Unit) {
+    override fun Then(lambda: () -> Unit): Else {
         if (success) { lambda() }
+        return SimpleElse(!success)
     }
 }
