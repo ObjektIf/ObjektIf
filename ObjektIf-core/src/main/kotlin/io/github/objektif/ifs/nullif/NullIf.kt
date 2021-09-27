@@ -39,10 +39,10 @@ interface NullIf {
     /**
      * The lambda will be executed, when the underlying object is null.
      */
-    fun isNull(lambda: () -> Unit)
+    infix fun isNull(lambda: () -> Unit)
 
     /**
      * The lambda will be executed, when the underlying object is not null.
      */
-    fun isNotNull(lambda: () -> Unit)
+    infix fun isNotNull(lambda: () -> Unit)
 }
