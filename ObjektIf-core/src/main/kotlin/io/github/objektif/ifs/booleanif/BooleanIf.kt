@@ -42,4 +42,9 @@ interface BooleanIf {
      *  When the condition is met [Then] will be exeuted.
      */
     fun isTrue(): Then
+
+    /**
+     *  When the condition is not met [Then] will be exeuted.
+     */
+    fun isFalse(): Then
 }

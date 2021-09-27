@@ -37,23 +37,39 @@ import io.kotest.matchers.shouldBe
 
 /** basic if test. */
 internal class BooleanIfTest : BehaviorSpec({
-    Given("a new if") {
-        val sut = SimpleBooleanIf(true)
+    Given("a new  if") {
         When("condition is true ") {
-            var changed = false
-            sut.isTrue().Then { changed = true }
-            Then("lambda is executed") {
-                changed shouldBe true
+            val sut = SimpleBooleanIf(true)
+            And("checked for true") {
+                var changed = false
+                sut.isTrue().Then { changed = true }
+                Then("lambda is executed") {
+                    changed shouldBe true
+                }
+            }
+            And("checked for false") {
+                var changed = false
+                sut.isFalse().Then { changed = true }
+                Then("lambda is not executed") {
+                    changed shouldBe false
+                }
             }
         }
-    }
-    Given("a new 'false' if") {
-        val sut = SimpleBooleanIf(false)
         When("condition is false ") {
-            var changed = false
-            sut.isTrue().Then { changed = true }
-            Then("lambda is not executed") {
-                changed shouldBe false
+            val sut = SimpleBooleanIf(false)
+            And("checked for true") {
+                var changed = false
+                sut.isTrue().Then { changed = true }
+                Then("lambda is not executed") {
+                    changed shouldBe false
+                }
+            }
+            And("checked for false") {
+                var changed = false
+                sut.isFalse().Then { changed = true }
+                Then("lambda is executed") {
+                    changed shouldBe true
+                }
             }
         }
     }
