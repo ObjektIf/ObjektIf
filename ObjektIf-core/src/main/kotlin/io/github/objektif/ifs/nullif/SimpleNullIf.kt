@@ -32,19 +32,26 @@
  */
 package io.github.objektif.ifs.nullif
 
+import io.github.objektif.elsebranch.Else
+import io.github.objektif.elsebranch.SimpleElse
+
 /**
  * The simple implementation for [NullIf].
  */
 class SimpleNullIf(private val objekt: Any?) : NullIf {
-    override fun isNull(lambda: () -> Unit) {
-        if (objekt == null) {
+    override fun isNull(lambda: () -> Unit): Else {
+        val condition = objekt == null
+        if (condition) {
             lambda()
         }
+        return SimpleElse(!condition)
     }
 
-    override fun isNotNull(lambda: () -> Unit) {
-        if (objekt != null) {
+    override fun isNotNull(lambda: () -> Unit): Else {
+        val condition = objekt != null
+        if (condition) {
             lambda()
         }
+        return SimpleElse(!condition)
     }
 }

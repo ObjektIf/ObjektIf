@@ -32,6 +32,8 @@
  */
 package io.github.objektif.ifs.booleanif
 
+import io.github.objektif.elsebranch.Else
+
 /**
  * The replacement for the "old" if.
  */
@@ -39,5 +41,5 @@ interface BooleanIf {
     /**
      * The lambda will be executed, when the condition is met.
      */
-    infix fun isTrue(lambda: () -> Unit)
+    infix fun isTrue(lambda: () -> Unit): Else
 }
