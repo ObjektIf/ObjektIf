@@ -42,5 +42,5 @@ object Objekt {
 
     infix fun If(bool: Boolean) = SimpleBooleanIf(bool)
 
-    infix fun If(bool: Any) = SimpleNullIf(bool)
+    infix fun If(bool: Any?) = SimpleNullIf(bool)
 }

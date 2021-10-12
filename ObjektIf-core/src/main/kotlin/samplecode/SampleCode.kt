@@ -40,6 +40,7 @@ import io.github.objektif.Objekt.If
 object SampleCode {
     const val aBoolean = true
     const val anotherBoolean = false
+    val nullValue = null
 }
 
 /**
@@ -51,4 +52,8 @@ fun main() {
     If(SampleCode.anotherBoolean).isTrue()
         .Then { println("another boolean was true") }
         .Else { println("another boolean was false") }
+
+    If(SampleCode.nullValue).isNull()
+        .Then { println("nullValue was null") }
+        .Else { println("nullValue was not null") }
 }
