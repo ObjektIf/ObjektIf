@@ -40,7 +40,7 @@ import io.github.objektif.thenbranch.Then
  */
 class SimpleBooleanIf(private val condition: Boolean) : BooleanIf {
 
-    override fun isTrue(): Then = SimpleThen(condition)
+    override fun isTrue(): Then = SimpleThen(condition == true)
 
-    override fun isFalse(): Then = SimpleThen(!condition)
+    override fun isFalse(): Then = SimpleThen(condition == false)
 }
