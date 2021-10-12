@@ -33,6 +33,7 @@
 package io.github.objektif
 
 import io.github.objektif.ifs.booleanif.SimpleBooleanIf
+import io.github.objektif.ifs.intif.SimpleIntIf
 import io.github.objektif.ifs.nullif.SimpleNullIf
 
 /**
@@ -43,4 +44,6 @@ object Objekt {
     infix fun If(bool: Boolean) = SimpleBooleanIf(bool)
 
     infix fun If(bool: Any?) = SimpleNullIf(bool)
+
+    infix fun If(anInt: Int) = SimpleIntIf(anInt)
 }

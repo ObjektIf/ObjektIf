@@ -30,37 +30,15 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  * #L%
  */
-package io.github.objektif
+package io.github.objektif.ifs.intif
 
-import io.github.objektif.ifs.booleanif.BooleanIf
-import io.github.objektif.ifs.intif.IntIf
-import io.github.objektif.ifs.nullif.NullIf
-import io.kotest.core.spec.style.BehaviorSpec
-import io.kotest.matchers.should
-import io.kotest.matchers.types.beInstanceOf
-import kotlin.random.Random
+import io.github.objektif.thenbranch.SimpleThen
+import io.github.objektif.thenbranch.Then
 
-internal class ObjektTest : BehaviorSpec({
+/**
+ * The simple implementation for [IntIf].
+ */
+class SimpleIntIf(private val anInt: Int) : IntIf {
 
-    Given("the main entry point") {
-
-        When("passing boolean parameter") {
-            val booleanIf: Any = Objekt If true
-            Then("if is an Booleanif") {
-                booleanIf should beInstanceOf<BooleanIf>()
-            }
-        }
-        When("passing String parameter") {
-            val nullIf: Any = Objekt If ""
-            Then("if is an NullIf") {
-                nullIf should beInstanceOf<NullIf>()
-            }
-        }
-        When("passing an int parameter") {
-            val intIf: Any = Objekt If Random.nextInt()
-            Then("if is an IntIf") {
-                intIf should beInstanceOf<IntIf>()
-            }
-        }
-    }
-})
+    override fun isZero(): Then = SimpleThen(anInt == 0)
+}

@@ -30,37 +30,22 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  * #L%
  */
-package io.github.objektif
+package samplecode
 
-import io.github.objektif.ifs.booleanif.BooleanIf
-import io.github.objektif.ifs.intif.IntIf
-import io.github.objektif.ifs.nullif.NullIf
-import io.kotest.core.spec.style.BehaviorSpec
-import io.kotest.matchers.should
-import io.kotest.matchers.types.beInstanceOf
-import kotlin.random.Random
+import io.github.objektif.Objekt.If
 
-internal class ObjektTest : BehaviorSpec({
+/**
+ * Some sample code to show how this library is used.
+ */
+object SampleCodeForInts {
+    const val zeroInt = 0
+}
 
-    Given("the main entry point") {
-
-        When("passing boolean parameter") {
-            val booleanIf: Any = Objekt If true
-            Then("if is an Booleanif") {
-                booleanIf should beInstanceOf<BooleanIf>()
-            }
-        }
-        When("passing String parameter") {
-            val nullIf: Any = Objekt If ""
-            Then("if is an NullIf") {
-                nullIf should beInstanceOf<NullIf>()
-            }
-        }
-        When("passing an int parameter") {
-            val intIf: Any = Objekt If Random.nextInt()
-            Then("if is an IntIf") {
-                intIf should beInstanceOf<IntIf>()
-            }
-        }
-    }
-})
+/**
+ * The main entry point to show the usage.
+ */
+fun main() {
+    If(SampleCodeForInts.zeroInt).isZero()
+        .Then { println("zeroInt was zero") }
+        .Else { println("zeroInt was not zero") }
+}

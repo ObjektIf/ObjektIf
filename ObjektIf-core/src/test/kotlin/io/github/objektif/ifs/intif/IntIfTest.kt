@@ -30,36 +30,35 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  * #L%
  */
-package io.github.objektif
+package io.github.objektif.ifs.intif
 
-import io.github.objektif.ifs.booleanif.BooleanIf
-import io.github.objektif.ifs.intif.IntIf
-import io.github.objektif.ifs.nullif.NullIf
 import io.kotest.core.spec.style.BehaviorSpec
-import io.kotest.matchers.should
-import io.kotest.matchers.types.beInstanceOf
-import kotlin.random.Random
+import io.kotest.matchers.shouldBe
 
-internal class ObjektTest : BehaviorSpec({
-
-    Given("the main entry point") {
-
-        When("passing boolean parameter") {
-            val booleanIf: Any = Objekt If true
-            Then("if is an Booleanif") {
-                booleanIf should beInstanceOf<BooleanIf>()
+internal class IntIfTest : BehaviorSpec({
+    Given("a zero int") {
+        val sut = 0
+        When("Testing for zero") {
+            var isZero: Boolean? = null
+            SimpleIntIf(sut).isZero()
+                .Then { isZero = true }
+                .Else { isZero = false }
+            Then("'then' is executed") {
+                isZero shouldBe true
             }
         }
-        When("passing String parameter") {
-            val nullIf: Any = Objekt If ""
-            Then("if is an NullIf") {
-                nullIf should beInstanceOf<NullIf>()
-            }
-        }
-        When("passing an int parameter") {
-            val intIf: Any = Objekt If Random.nextInt()
-            Then("if is an IntIf") {
-                intIf should beInstanceOf<IntIf>()
+    }
+    fun positiveInt(): Int = 5
+
+    Given("a positive int") {
+        val sut = positiveInt()
+        When("Testing for non zero") {
+            var isZero: Boolean? = null
+            SimpleIntIf(sut).isZero()
+                .Then { isZero = true }
+                .Else { isZero = false }
+            Then("'else' is executed") {
+                isZero shouldBe false
             }
         }
     }
