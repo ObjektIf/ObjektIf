@@ -38,7 +38,12 @@
     <url>https://github.com/ObjektIf/ObjektIf/issues</url>
   </issueManagement>
   <properties>
+    <io.kotest.version>5.0.0.M2</io.kotest.version>
     <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
+    <net.java.dev.jna.version>5.9.0</net.java.dev.jna.version>
+    <org.jetbrains.annotations.version>22.0.0</org.jetbrains.annotations.version>
+    <org.jetbrains.kotlin.version>1.6.0-RC</org.jetbrains.kotlin.version>
+    <org.junit.jupiter.version>5.8.1</org.junit.jupiter.version>
     <prettier.version>2.3.0</prettier.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -57,69 +62,81 @@
       <dependency>
         <groupId>org.jetbrains.kotlin</groupId>
         <artifactId>kotlin-stdlib</artifactId>
-        <version>1.5.31</version>
+        <version>${org.jetbrains.kotlin.version}</version>
       </dependency>
       <dependency>
         <groupId>org.jetbrains.kotlin</groupId>
         <artifactId>kotlin-stdlib-common</artifactId>
-        <version>1.5.31</version>
+        <version>${org.jetbrains.kotlin.version}</version>
       </dependency>
       <dependency>
         <groupId>org.jetbrains.kotlin</groupId>
         <artifactId>kotlin-stdlib-jdk7</artifactId>
-        <version>1.5.31</version>
+        <version>${org.jetbrains.kotlin.version}</version>
       </dependency>
       <dependency>
         <groupId>org.jetbrains.kotlin</groupId>
         <artifactId>kotlin-stdlib-jdk8</artifactId>
-        <version>1.5.31</version>
+        <version>${org.jetbrains.kotlin.version}</version>
       </dependency>
       <dependency>
         <groupId>org.jetbrains</groupId>
         <artifactId>annotations</artifactId>
-        <version>22.0.0</version>
+        <version>${org.jetbrains.annotations.version}</version>
       </dependency>
       <dependency>
         <groupId>io.kotest</groupId>
         <artifactId>kotest-runner-junit5-jvm</artifactId>
         <!-- ensure to update the version for in ignoredUnusedDeclaredDependency in maven-dependency-plugin -->
-        <version>4.6.3</version>
+        <version>${io.kotest.version}</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>io.kotest</groupId>
         <artifactId>kotest-assertions-core-jvm</artifactId>
-        <version>4.6.3</version>
+        <version>${io.kotest.version}</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>io.kotest</groupId>
         <artifactId>kotest-property-jvm</artifactId>
-        <version>4.6.3</version>
+        <version>${io.kotest.version}</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter</artifactId>
-        <version>5.8.1</version>
+        <version>${org.junit.jupiter.version}</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>io.kotest</groupId>
         <artifactId>kotest-framework-api-jvm</artifactId>
-        <version>4.6.3</version>
+        <version>${io.kotest.version}</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>io.kotest</groupId>
         <artifactId>kotest-assertions-shared-jvm</artifactId>
-        <version>4.6.3</version>
+        <version>${io.kotest.version}</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.jetbrains.kotlin</groupId>
         <artifactId>kotlin-script-runtime</artifactId>
-        <version>1.5.31</version>
+        <version>${org.jetbrains.kotlin.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>net.java.dev.jna</groupId>
+        <artifactId>jna</artifactId>
+        <version>${net.java.dev.jna.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>net.java.dev.jna</groupId>
+        <artifactId>jna-platform</artifactId>
+        <version>${net.java.dev.jna.version}</version>
+        <scope>test</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -232,15 +249,15 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
-          <version>3.2.0</version>
+          <version>3.1.2</version>
           <configuration>
             <failBuild>true</failBuild>
             <failOnMissingClassifierArtifact>true</failOnMissingClassifierArtifact>
             <failOnWarning>true</failOnWarning>
             <scriptableOutput>true</scriptableOutput>
             <ignoredUnusedDeclaredDependencies>
-              <ignoredUnusedDeclaredDependency>io.kotest:kotest-runner-junit5-jvm:jar:4.6.3</ignoredUnusedDeclaredDependency>
-              <ignoredUnusedDeclaredDependency>org.jetbrains.kotlin:kotlin-script-runtime:jar:1.5.31</ignoredUnusedDeclaredDependency>
+              <ignoredUnusedDeclaredDependency>io.kotest:kotest-runner-junit5-jvm:jar:${io.kotest.version}</ignoredUnusedDeclaredDependency>
+              <ignoredUnusedDeclaredDependency>org.jetbrains.kotlin:kotlin-script-runtime:jar:${org.jetbrains.kotlin.version}</ignoredUnusedDeclaredDependency>
             </ignoredUnusedDeclaredDependencies>
           </configuration>
           <executions>
@@ -331,7 +348,7 @@
         <plugin>
           <groupId>org.jetbrains.kotlin</groupId>
           <artifactId>kotlin-maven-plugin</artifactId>
-          <version>1.5.31</version>
+          <version>${org.jetbrains.kotlin.version}</version>
           <configuration>
             <correctErrorTypes>true</correctErrorTypes>
             <jvmTarget>1.8</jvmTarget>
