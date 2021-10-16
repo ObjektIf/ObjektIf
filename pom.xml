@@ -83,7 +83,7 @@
         <groupId>io.kotest</groupId>
         <artifactId>kotest-runner-junit5-jvm</artifactId>
         <!-- ensure to update the version for in ignoredUnusedDeclaredDependency in maven-dependency-plugin -->
-        <version>4.6.2</version>
+        <version>4.6.3</version>
         <scope>test</scope>
       </dependency>
       <dependency>
