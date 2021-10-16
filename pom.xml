@@ -101,7 +101,7 @@
       <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter</artifactId>
-        <version>5.8.0-RC1</version>
+        <version>5.8.1</version>
         <scope>test</scope>
       </dependency>
       <dependency>
@@ -129,7 +129,7 @@
         <plugin>
           <groupId>org.jetbrains.dokka</groupId>
           <artifactId>dokka-maven-plugin</artifactId>
-          <version>1.5.0</version>
+          <version>1.5.31</version>
           <executions>
             <execution>
               <goals>
@@ -331,7 +331,7 @@
         <plugin>
           <groupId>org.jetbrains.kotlin</groupId>
           <artifactId>kotlin-maven-plugin</artifactId>
-          <version>1.5.30</version>
+          <version>1.5.31</version>
           <configuration>
             <correctErrorTypes>true</correctErrorTypes>
             <jvmTarget>1.8</jvmTarget>
