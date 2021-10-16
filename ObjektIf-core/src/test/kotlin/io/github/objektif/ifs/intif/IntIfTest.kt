@@ -37,27 +37,28 @@ import io.kotest.matchers.shouldBe
 
 internal class IntIfTest : BehaviorSpec({
     Given("a zero int") {
-        val sut = 0
+        val sut = SimpleIntIf(0)
         When("Testing for zero") {
             var isZero: Boolean? = null
-            SimpleIntIf(sut).isZero()
+            sut.isZero()
                 .Then { isZero = true }
                 .Else { isZero = false }
-            Then("'then' is executed") {
+            Then("'isZero' is true") {
                 isZero shouldBe true
             }
         }
     }
+
     fun positiveInt(): Int = 5
 
     Given("a positive int") {
-        val sut = positiveInt()
-        When("Testing for non zero") {
+        val sut = SimpleIntIf(positiveInt())
+        When("Testing for zero") {
             var isZero: Boolean? = null
-            SimpleIntIf(sut).isZero()
+            sut.isZero()
                 .Then { isZero = true }
                 .Else { isZero = false }
-            Then("'else' is executed") {
+            Then("'isZero' is false") {
                 isZero shouldBe false
             }
         }

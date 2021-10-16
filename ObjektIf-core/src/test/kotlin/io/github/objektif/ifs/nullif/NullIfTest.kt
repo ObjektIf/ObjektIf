@@ -37,37 +37,45 @@ import io.kotest.matchers.shouldBe
 
 internal class NullIfTest : BehaviorSpec({
     Given("an null object") {
-        val sut = null
+        val sut = SimpleNullIf(null)
         When("Testing for null") {
-            var changed = false
-            SimpleNullIf(sut).isNull().Then { changed = true }
-            Then("lambda is executed") {
-                changed shouldBe true
+            var isNull: Boolean? = null
+            sut.isNull()
+                .Then { isNull = true }
+                .Else { isNull = false }
+            Then("'isNull' is true") {
+                isNull shouldBe true
             }
         }
         When("Testing for not null") {
-            var changed = false
-            SimpleNullIf(sut).isNotNull().Then { changed = true }
-            Then("lambda is not executed") {
-                changed shouldBe false
+            var isNotNull: Boolean? = null
+            sut.isNotNull()
+                .Then { isNotNull = true }
+                .Else { isNotNull = false }
+            Then("'isNotNull' is false") {
+                isNotNull shouldBe false
             }
         }
     }
 
     Given("an not null object") {
-        val sut = "something"
+        val sut = SimpleNullIf("something")
         When("Testing for null") {
-            var changed = false
-            SimpleNullIf(sut).isNull().Then { changed = true }
-            Then("lambda is not executed") {
-                changed shouldBe false
+            var isNull: Boolean? = null
+            sut.isNull()
+                .Then { isNull = true }
+                .Else { isNull = false }
+            Then("'isNull' is false") {
+                isNull shouldBe false
             }
         }
         When("Testing for not null") {
-            var changed = false
-            SimpleNullIf(sut).isNotNull().Then { changed = true }
-            Then("lambda is executed") {
-                changed shouldBe true
+            var isNotNull: Boolean? = null
+            sut.isNotNull()
+                .Then { isNotNull = true }
+                .Else { isNotNull = false }
+            Then("'isNotNull' is true") {
+                isNotNull shouldBe true
             }
         }
     }

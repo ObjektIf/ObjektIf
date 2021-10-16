@@ -35,41 +35,47 @@ package io.github.objektif.ifs.booleanif
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
 
-/** basic if test. */
 internal class BooleanIfTest : BehaviorSpec({
-    Given("a new  if") {
-        When("condition is true ") {
-            val sut = SimpleBooleanIf(true)
-            And("checked for true") {
-                var changed = false
-                sut.isTrue().Then { changed = true }
-                Then("lambda is executed") {
-                    changed shouldBe true
-                }
-            }
-            And("checked for false") {
-                var changed = false
-                sut.isFalse().Then { changed = true }
-                Then("lambda is not executed") {
-                    changed shouldBe false
-                }
+    Given("a true value") {
+        val sut = SimpleBooleanIf(true)
+        When("Testing for true") {
+            var isTrue: Boolean? = null
+            sut.isTrue()
+                .Then { isTrue = true }
+                .Else { isTrue = false }
+            Then("'isTrue' is true") {
+                isTrue shouldBe true
             }
         }
-        When("condition is false ") {
-            val sut = SimpleBooleanIf(false)
-            And("checked for true") {
-                var changed = false
-                sut.isTrue().Then { changed = true }
-                Then("lambda is not executed") {
-                    changed shouldBe false
-                }
+        When("Testing for false") {
+            var isFalse: Boolean? = null
+            sut.isFalse()
+                .Then { isFalse = true }
+                .Else { isFalse = false }
+            Then("'isFalse' is false") {
+                isFalse shouldBe false
             }
-            And("checked for false") {
-                var changed = false
-                sut.isFalse().Then { changed = true }
-                Then("lambda is executed") {
-                    changed shouldBe true
-                }
+        }
+    }
+
+    Given("a false value") {
+        val sut = SimpleBooleanIf(false)
+        When("Testing for true") {
+            var isTrue: Boolean? = null
+            sut.isTrue()
+                .Then { isTrue = true }
+                .Else { isTrue = false }
+            Then("'isTrue' is false") {
+                isTrue shouldBe false
+            }
+        }
+        When("Testing for false") {
+            var isFalse: Boolean? = null
+            sut.isFalse()
+                .Then { isFalse = true }
+                .Else { isFalse = false }
+            Then("'isFalse' is true") {
+                isFalse shouldBe true
             }
         }
     }
