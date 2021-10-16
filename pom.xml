@@ -62,7 +62,7 @@
       <dependency>
         <groupId>org.jetbrains.kotlin</groupId>
         <artifactId>kotlin-stdlib-common</artifactId>
-        <version>1.5.30</version>
+        <version>1.5.31</version>
       </dependency>
       <dependency>
         <groupId>org.jetbrains.kotlin</groupId>
@@ -115,6 +115,11 @@
         <artifactId>kotest-assertions-shared-jvm</artifactId>
         <version>4.6.2</version>
         <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jetbrains.kotlin</groupId>
+        <artifactId>kotlin-script-runtime</artifactId>
+        <version>1.5.30</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -235,6 +240,7 @@
             <scriptableOutput>true</scriptableOutput>
             <ignoredUnusedDeclaredDependencies>
               <ignoredUnusedDeclaredDependency>io.kotest:kotest-runner-junit5-jvm:jar:4.6.2</ignoredUnusedDeclaredDependency>
+              <ignoredUnusedDeclaredDependency>org.jetbrains.kotlin:kotlin-script-runtime:jar:1.5.30</ignoredUnusedDeclaredDependency>
             </ignoredUnusedDeclaredDependencies>
           </configuration>
           <executions>
@@ -363,6 +369,9 @@
                 <goal>check</goal>
               </goals>
               <configuration>
+                <excludes>
+                  <exclude>**/samplecode/SampleCode*</exclude>
+                </excludes>
                 <rules>
                   <rule>
                     <element>BUNDLE</element>
