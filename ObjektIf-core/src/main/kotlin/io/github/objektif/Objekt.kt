@@ -41,9 +41,18 @@ import io.github.objektif.ifs.nullif.SimpleNullIf
  */
 object Objekt {
 
+    /**
+     * The [Boolean] to check.
+     */
     infix fun If(bool: Boolean) = SimpleBooleanIf(bool)
 
+    /**
+     * The [Any] to check.
+     */
     infix fun If(bool: Any?) = SimpleNullIf(bool)
 
+    /**
+     * The [Int] to check.
+     */
     infix fun If(anInt: Int) = SimpleIntIf(anInt)
 }

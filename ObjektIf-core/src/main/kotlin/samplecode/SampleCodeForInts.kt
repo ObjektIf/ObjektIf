@@ -38,6 +38,9 @@ import io.github.objektif.Objekt.If
  * Some sample code to show how this library is used.
  */
 object SampleCodeForInts {
+    /**
+     * A zero [Int] to demonstrate usage.
+     */
     const val zeroInt = 0
 }
 

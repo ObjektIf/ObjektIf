@@ -38,8 +38,19 @@ import io.github.objektif.Objekt.If
  * Some sample code to show how this library is used.
  */
 object SampleCode {
+    /**
+     * A true [Boolean] to demonstrate usage.
+     */
     const val aBoolean = true
+
+    /**
+     * A false [Boolean] to demonstrate usage.
+     */
     const val anotherBoolean = false
+
+    /**
+     * A null value to demonstrate usage.
+     */
     val nullValue = null
 }
 
