@@ -37,34 +37,27 @@ import io.github.objektif.Objekt.If
 /**
  * Some sample code to show how this library is used.
  */
-object SampleCode {
-    /**
-     * A true [Boolean] to demonstrate usage.
-     */
-    const val aBoolean = true
-
-    /**
-     * A false [Boolean] to demonstrate usage.
-     */
-    const val anotherBoolean = false
-
+object SampleCodeForAny {
     /**
      * A null value to demonstrate usage.
      */
     val nullValue = null
+
+    /**
+     * A non-null value to demonstrate usage.
+     */
+    val nonNullValue = Any()
 }
 
 /**
  * The main entry point to show the usage.
  */
 fun main() {
-    If(SampleCode.aBoolean).isTrue().Then { println("a boolean was true") }.Else { println("a boolean was false") }
-
-    If(SampleCode.anotherBoolean).isTrue()
-        .Then { println("another boolean was true") }
-        .Else { println("another boolean was false") }
-
-    If(SampleCode.nullValue).isNull()
+    If(SampleCodeForAny.nullValue).isNull()
         .Then { println("nullValue was null") }
         .Else { println("nullValue was not null") }
+
+    If(SampleCodeForAny.nonNullValue).isNull()
+        .Then { println("nonNullValue was null") }
+        .Else { println("nonNullValue was not null") }
 }
