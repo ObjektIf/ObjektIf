@@ -42,7 +42,7 @@
     <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
     <net.java.dev.jna.version>5.9.0</net.java.dev.jna.version>
     <org.jetbrains.annotations.version>22.0.0</org.jetbrains.annotations.version>
-    <org.jetbrains.kotlin.version>1.6.0-RC</org.jetbrains.kotlin.version>
+    <org.jetbrains.kotlin.version>1.5.31</org.jetbrains.kotlin.version>
     <org.junit.jupiter.version>5.8.1</org.junit.jupiter.version>
     <prettier.version>2.3.0</prettier.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -302,6 +302,9 @@
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
           <version>2.8.1</version>
+          <configuration>
+            <excludeProperties>org.jetbrains.kotlin.version</excludeProperties>
+          </configuration>
           <executions>
             <execution>
               <goals>
