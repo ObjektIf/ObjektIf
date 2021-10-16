@@ -239,8 +239,8 @@
             <failOnWarning>true</failOnWarning>
             <scriptableOutput>true</scriptableOutput>
             <ignoredUnusedDeclaredDependencies>
-              <ignoredUnusedDeclaredDependency>io.kotest:kotest-runner-junit5-jvm:jar:4.6.2</ignoredUnusedDeclaredDependency>
-              <ignoredUnusedDeclaredDependency>org.jetbrains.kotlin:kotlin-script-runtime:jar:1.5.30</ignoredUnusedDeclaredDependency>
+              <ignoredUnusedDeclaredDependency>io.kotest:kotest-runner-junit5-jvm:jar:4.6.3</ignoredUnusedDeclaredDependency>
+              <ignoredUnusedDeclaredDependency>org.jetbrains.kotlin:kotlin-script-runtime:jar:1.5.31</ignoredUnusedDeclaredDependency>
             </ignoredUnusedDeclaredDependencies>
           </configuration>
           <executions>
