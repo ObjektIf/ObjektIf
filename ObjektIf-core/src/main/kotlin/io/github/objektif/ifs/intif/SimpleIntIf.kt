@@ -41,4 +41,6 @@ import io.github.objektif.thenbranch.Then
 class SimpleIntIf(private val anInt: Int) : IntIf {
 
     override fun isZero(): Then = SimpleThen(anInt == 0)
+
+    override fun isLessThan(compare: Int): Then = SimpleThen(anInt < compare)
 }

@@ -42,4 +42,9 @@ interface IntIf {
      *  When the int is zero [Then] will be executed.
      */
     fun isZero(): Then
+
+    /**
+     *  When the int is less than the parameter. [Then] will be executed.
+     */
+    infix fun isLessThan(compare: Int): Then
 }

@@ -36,6 +36,9 @@ import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
 
 internal class IntIfTest : BehaviorSpec({
+    fun five(): Int = 5
+    fun minusFive(): Int = -five()
+
     Given("a zero int") {
         val sut = SimpleIntIf(0)
         When("Testing for zero") {
@@ -47,12 +50,28 @@ internal class IntIfTest : BehaviorSpec({
                 isZero shouldBe true
             }
         }
+        When("Testing for less then ${five()}") {
+            var isLessThanFive: Boolean? = null
+            sut.isLessThan(five())
+                .Then { isLessThanFive = true }
+                .Else { isLessThanFive = false }
+            Then("'isLessThanFive' is true") {
+                isLessThanFive shouldBe true
+            }
+        }
+        When("Testing for less then ${minusFive()}") {
+            var isLessThanMinusFive: Boolean? = null
+            sut.isLessThan(minusFive())
+                .Then { isLessThanMinusFive = true }
+                .Else { isLessThanMinusFive = false }
+            Then("'isLessThanMinusFive' is false") {
+                isLessThanMinusFive shouldBe false
+            }
+        }
     }
 
-    fun positiveInt(): Int = 5
-
     Given("a positive int") {
-        val sut = SimpleIntIf(positiveInt())
+        val sut = SimpleIntIf(five())
         When("Testing for zero") {
             var isZero: Boolean? = null
             sut.isZero()
