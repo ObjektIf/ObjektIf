@@ -4,12 +4,15 @@
 name: Java CI with Maven
 
 on:
-  push:
+  pull_request:
+    types:
+      - opened
+      - closed
     branches:
       - main
 
 jobs:
-  build:
+  lint-build-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -29,9 +32,11 @@ jobs:
         run: ./mvnw clean install -Plint -B --no-transfer-progress
 
       - name: set new version to maven
+        if: ${{ github.event.pull_request.merged == true }}
         run: ./mvnw versions:set -DnewVersion="${GITHUB_RUN_NUMBER}-${GITHUB_SHA}" -B --no-transfer-progress
 
       - name: build and deploy
+        if: ${{ github.event.pull_request.merged == true }}
         env:
           OSSRH_NEXUS_USERNAME: ${{ secrets.OSSRH_NEXUS_USERNAME }}
           OSSRH_NEXUS_PASSWORD: ${{ secrets.OSSRH_NEXUS_PASSWORD }}
