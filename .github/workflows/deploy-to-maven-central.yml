@@ -28,20 +28,9 @@ jobs:
           server-id: "ossrh"
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
 
-  lint:
-    needs:
-      - setup
-    runs-on: ubuntu-latest
-    steps:
       - name: lint
         run: ./mvnw clean install -Plint -B --no-transfer-progress
 
-  build_deploy:
-    if: ${{ github.event.push.ref == 'refs/heads/main'}}
-    needs:
-      - lint
-    runs-on: ubuntu-latest
-    steps:
       - name: set new version to maven
         if: ${{ github.event.pull_request.merged == true }}
         run: ./mvnw versions:set -DnewVersion="${GITHUB_RUN_NUMBER}-${GITHUB_SHA}" -B --no-transfer-progress
