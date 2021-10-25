@@ -38,7 +38,7 @@
     <url>https://github.com/ObjektIf/ObjektIf/issues</url>
   </issueManagement>
   <properties>
-    <io.kotest.version>5.0.0.M2</io.kotest.version>
+    <io.kotest.version>5.0.0.M3</io.kotest.version>
     <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
     <net.java.dev.jna.version>5.9.0</net.java.dev.jna.version>
     <org.jetbrains.annotations.version>22.0.0</org.jetbrains.annotations.version>
