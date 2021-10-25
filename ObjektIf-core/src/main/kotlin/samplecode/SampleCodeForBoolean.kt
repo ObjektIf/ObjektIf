@@ -30,9 +30,13 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  * #L%
  */
+@file:Suppress("MaxLineLength")
+
 package samplecode
 
 import io.github.objektif.Objekt.If
+import samplecode.SampleCodeForBoolean.aBoolean
+import samplecode.SampleCodeForBoolean.anotherBoolean
 
 /**
  * Some sample code to show how this library is used.
@@ -53,11 +57,11 @@ object SampleCodeForBoolean {
  * The main entry point to show the usage.
  */
 fun main() {
-    If(SampleCodeForBoolean.aBoolean).isTrue()
+    If(aBoolean).isTrue()
         .Then { println("a boolean was true") }
         .Else { println("a boolean was false") }
 
-    If(SampleCodeForBoolean.anotherBoolean).isTrue()
+    If(anotherBoolean).isTrue()
         .Then { println("another boolean was true") }
         .Else { println("another boolean was false") }
 }

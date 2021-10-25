@@ -30,9 +30,13 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  * #L%
  */
+@file:Suppress("MaxLineLength")
+
 package samplecode
 
 import io.github.objektif.Objekt.If
+import samplecode.SampleCodeForAny.nonNullValue
+import samplecode.SampleCodeForAny.nullValue
 
 /**
  * Some sample code to show how this library is used.
@@ -53,11 +57,9 @@ object SampleCodeForAny {
  * The main entry point to show the usage.
  */
 fun main() {
-    If(SampleCodeForAny.nullValue).isNull()
+    If(nullValue).isNull()
         .Then { println("nullValue was null") }
         .Else { println("nullValue was not null") }
 
-    If(SampleCodeForAny.nonNullValue).isNull()
-        .Then { println("nonNullValue was null") }
-        .Else { println("nonNullValue was not null") }
+    If(nonNullValue).isNull() Then { println("nonNullValue was null") } Else { println("nonNullValue was not null") }
 }

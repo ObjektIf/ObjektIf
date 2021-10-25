@@ -30,9 +30,13 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  * #L%
  */
+@file:Suppress("MaxLineLength")
+
 package samplecode
 
 import io.github.objektif.Objekt.If
+import samplecode.SampleCodeForInts.five
+import samplecode.SampleCodeForInts.zeroInt
 
 /**
  * Some sample code to show how this library is used.
@@ -42,13 +46,20 @@ object SampleCodeForInts {
      * A zero [Int] to demonstrate usage.
      */
     const val zeroInt = 0
+
+    /**
+     * a "five" [Int] to demonstrate usage.
+     */
+    const val five = 5
 }
 
 /**
  * The main entry point to show the usage.
  */
 fun main() {
-    If(SampleCodeForInts.zeroInt).isZero()
-        .Then { println("zeroInt was zero") }
-        .Else { println("zeroInt was not zero") }
+    If(zeroInt).isZero()
+        .Then { println("zeroInt is zero") }
+        .Else { println("zeroInt is not zero") }
+
+    If(zeroInt) isLessThan five Then { println("zeroInt is less than $five") } Else { println("zeroInt is not less then $five") }
 }
