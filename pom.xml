@@ -41,7 +41,7 @@
     <io.kotest.version>5.0.0.M3</io.kotest.version>
     <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
     <net.java.dev.jna.version>5.9.0</net.java.dev.jna.version>
-    <org.jetbrains.annotations.version>22.0.0</org.jetbrains.annotations.version>
+    <org.jetbrains.annotations.version>24.0.0</org.jetbrains.annotations.version>
     <org.jetbrains.kotlin.version>1.5.31</org.jetbrains.kotlin.version>
     <org.junit.jupiter.version>5.8.1</org.junit.jupiter.version>
     <prettier.version>2.3.0</prettier.version>
